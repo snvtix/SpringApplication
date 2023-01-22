@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8"/>
-        <title>Strona glowna klienta</title>
+        <title>Oferty</title>
         <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 
         <style>
@@ -72,45 +72,41 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
-                <div align="center">
-                    <h1 style="color: steelblue">Twoje oferty</h1>
+        <div align="center" style="padding-top: 100px">
+            <h1 style="color: steelblue">Twoje oferty</h1>
 
-                    <table border="1" cellpadding="10">
+            <table border="1" cellpadding="10" >
 
-                        <thead>
-                        <tr>
-                            <th>Numer oferty</th>
-                            <th>Nazwa produktu</th>
-                            <th>Oferowana cena</th>
-                            <th>Opis</th>
-                            <th>Numer rozgłośni</th>
-                            <th>Akcja</th>
-                        </tr>
-                        </thead>
+                <thead>
+                <tr>
+                    <th>Numer oferty</th>
+                    <th>Nazwa produktu</th>
+                    <th>Oferowana cena</th>
+                    <th>Opis</th>
+                    <th>Numer rozgłośni</th>
+                    <th>Akcja</th>
+                </tr>
+                </thead>
 
-                        <tbody>
-                        <tr th:each="oferty : ${listOferty}">
-                            <td th:text="${oferty.nr_oferty}">nr_oferty</td>
-                            <td th:text="${oferty.nazwa_produktu}">nazwa_produktu</td>
-                            <td th:text="${oferty.oferowana_cena}">oferowana_cena</td>
-                            <td th:text="${oferty.opis}">opis</td>
-                            <td th:text="${oferty.nr_rozglosni}">nr_rozglosni</td>
-                            <td>
-                                <a th:href="@{'/edit_oferty/' + ${oferty.nr_oferty}}">Edytuj</a>
-                            </td>
-                        </tr>
-                        </tbody>
+                <tbody>
+                <tr th:each="oferty : ${listOferty}">
+                    <td th:text="${oferty.nr_oferty}">nr_oferty</td>
+                    <td th:text="${oferty.nazwa_produktu}">nazwa_produktu</td>
+                    <td th:text="${oferty.oferowana_cena}">oferowana_cena</td>
+                    <td th:text="${oferty.opis}">opis</td>
+                    <td th:text="${oferty.nr_rozglosni}">nr_rozglosni</td>
+                    <td>
+                        <a th:href="@{'/edit_oferty/' + ${oferty.nr_oferty}}">Edytuj</a>
+                    </td>
+                </tr>
+                </tbody>
 
-                    </table>
+            </table>
 
-                    <button class="btn btn-outline-">
-                        <a th:href="@{/new_oferty}">Dodaj ofertę</a>
-                    </button>
-                </div>
-            </div>
+            <a th:href="@{/new_oferty}">
+                <button class="btn btn-outline-">Dodaj ofertę</button></a>
         </div>
+
 
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
