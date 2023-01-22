@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Error Page</title>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+        <style>
+            .navbar{
+                background-color: #692137;
+            }
+            .navbar-brand{
+                font-size: 25px;
+            }
+            .nav-item{
+                font-size: 20px;
+            }
+            body{
+                background-image: url("https://i.pinimg.com/originals/b8/ba/79/b8ba798cc393f599e41b7d2a52ea0ee2.gif");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: bottom right;
+                background-size: 70%;
+            }
+            #error{
+                font-size: 40px;
+                color: steelblue;
+                padding-top: 100px;
+            }
+            #mess{
+                font-size: 30px;
+                color: steelblue;
+            }
+            .btn{
+                background-color: steelblue;
+                padding-top: 15px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Rozgłośnia muzyczna</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <form method="post" th:action="@{/index}">
+                    <div class="form-group">
+                        <div><b><p id="error">Error</p></b></div>
+                        <div><p id="mess">500 – Wewnętrzny błąd serwera</p></div>
+                    </div>
+                    <button class="btn btn-primary" type="submit" value="Sign In">Wróć do strony głównej</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>
+
