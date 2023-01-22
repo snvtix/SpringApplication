@@ -15,21 +15,6 @@ public class Pracownicy {
     private int nr_rozglosni;
     private int nr_studia;
 
-    public Pracownicy() {
-        this.nr_pracownika = nr_pracownika;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.data_urodzenia = data_urodzenia;
-        this.pesel = pesel;
-        this.plec = plec;
-        this.email = email;
-        this.nr_telefonu = nr_telefonu;
-        this.nr_konta = nr_konta;
-        this.data_zatrudnienia = data_zatrudnienia;
-        this.nr_rozglosni = nr_rozglosni;
-        this.nr_studia  = nr_studia;
-    }
-
     public int getNr_pracownika() {
         return nr_pracownika;
     }
@@ -101,24 +86,6 @@ public class Pracownicy {
     }
     public void setNr_studia(int nr_studia) {
         this.nr_studia = nr_studia;
-    }
-
-    @Override
-    public String toString() {
-        return "Pracownicy{" +
-                "nr_pracownika=" + nr_pracownika +
-                ", imie='" + imie + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", data_urodzenia='" + data_urodzenia + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", plec='" + plec + '\'' +
-                ", email='" + email + '\'' +
-                ", nr_telefonu='" + nr_telefonu + '\'' +
-                ", nr_konta='" + nr_konta + '\'' +
-                ", data_zatrudnienia='" + data_zatrudnienia + '\'' +
-                ", nr_rozglosni=" + nr_rozglosni +
-                ", nr_studia=" + nr_studia +
-                '}';
     }
 
 }

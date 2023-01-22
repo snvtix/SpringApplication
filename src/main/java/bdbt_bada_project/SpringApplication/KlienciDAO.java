@@ -21,7 +21,7 @@ public class KlienciDAO {
     }
 
     public List<Klienci> list(){
-        String sql = "SELECT * FROM klienci WHERE nr_klienta = 1";
+        String sql = "SELECT * FROM KLIENCI";
 
         List<Klienci> listKlienci = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Klienci.class));
         return listKlienci;
@@ -29,7 +29,7 @@ public class KlienciDAO {
 
     public void save(Klienci Klienci) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("klienci").usingColumns("nr_oferty", "nazwa_produktu", "oferowana_cena", "opis", "nr_rozglosni");
+        insertActor.withTableName("KLIENCI").usingColumns();
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(Klienci);
         insertActor.execute(param);

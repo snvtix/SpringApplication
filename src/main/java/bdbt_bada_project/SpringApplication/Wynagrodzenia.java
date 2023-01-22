@@ -9,15 +9,6 @@ public class Wynagrodzenia {
     private int nr_pracownika;
     private int nr_przychodu;
 
-    public Wynagrodzenia() {
-        this.nr_wynagrodzenia = nr_wynagrodzenia;
-        this.brutto = brutto;
-        this.netto = netto;
-        this.tara = tara;
-        this.nr_pracownika = nr_pracownika;
-        this.nr_przychodu = nr_przychodu;
-    }
-
     public int getNr_wynagrodzenia() {
         return nr_wynagrodzenia;
     }
@@ -53,16 +44,6 @@ public class Wynagrodzenia {
     }
     public void setNr_przychodu(int nr_przychodu) {
         this.nr_przychodu = nr_przychodu;
-    }
-
-    @Override
-    public String toString() {
-        return "Wynagrodzenia{" +
-                "Nr_wynagrodzenia=" + nr_wynagrodzenia +
-                ", Brutto=" + brutto +
-                ", Netto=" + netto +
-                ", Tara=" + tara +
-                '}';
     }
 
 }

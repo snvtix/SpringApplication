@@ -20,14 +20,14 @@ public class OfertyDAO {
     }
 
     public List<Oferty> list(){
-        String sql = "SELECT * FROM oferty WHERE nr_klienta = 1";
+        String sql = "SELECT * FROM OFERTY";
 
         List<Oferty> listOferty = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Oferty.class));
         return listOferty;
     }
     public void save(Oferty oferty) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("Oferty").usingColumns("nr_oferty", "nazwa_produktu", "oferowana_cena", "opis", "nr_klienta");
+        insertActor.withTableName("Oferty").usingColumns("NR_OFERTY", "NAZWA_PRODUKTU", "OFEROWANA_CENA", "OPIS", "NR_ROZGLOSNI");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(oferty);
         insertActor.execute(param);

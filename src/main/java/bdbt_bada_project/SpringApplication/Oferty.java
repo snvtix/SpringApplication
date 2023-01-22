@@ -8,14 +8,6 @@ public class Oferty {
     private String opis;
     private int nr_klienta;
 
-    public Oferty(int nr_oferty, String nazwa_produktu, float oferowana_cena, String opis, int nr_klienta) {
-        this.nr_oferty = nr_oferty;
-        this.nazwa_produktu = nazwa_produktu;
-        this.oferowana_cena = oferowana_cena;
-        this.opis = opis;
-        this.nr_klienta = nr_klienta;
-    }
-
     public int getNr_oferty() {
         return nr_oferty;
     }
@@ -45,17 +37,6 @@ public class Oferty {
     }
     public void setNr_klienta(int nr_klienta) {
         this.nr_klienta = nr_klienta;
-    }
-
-    @Override
-    public String toString() {
-        return "Oferty{" +
-                "nr_oferty=" + nr_oferty +
-                ", nazwa_produktu='" + nazwa_produktu + '\'' +
-                ", oferowana_cena=" + oferowana_cena +
-                ", opis='" + opis + '\'' +
-                ", nr_klienta=" + nr_klienta +
-                '}';
     }
 
 }

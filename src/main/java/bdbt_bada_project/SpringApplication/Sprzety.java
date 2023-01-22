@@ -12,16 +12,6 @@ public class Sprzety {
     private int nr_studia;
     private int nr_firmy;
 
-    public Sprzety() {
-        this.nr_sprzetu = nr_sprzetu;
-        this.nazwa = nazwa;
-        this.model = model;
-        this.data_zakupu = data_zakupu;
-        this.nr_rozglosni = nr_rozglosni;
-        this.nr_studia = nr_studia;
-        this.nr_firmy = nr_firmy;
-    }
-
     public int getNr_sprzetu() {
         return nr_sprzetu;
     }
@@ -63,19 +53,6 @@ public class Sprzety {
     }
     public void setNr_firmy(int nr_firmy) {
         this.nr_firmy = nr_firmy;
-    }
-
-    @Override
-    public String toString() {
-        return "Sprzety{" +
-                "nr_sprzetu=" + nr_sprzetu +
-                ", nazwa='" + nazwa + '\'' +
-                ", model='" + model + '\'' +
-                ", data_zakupu='" + data_zakupu + '\'' +
-                ", nr_rozglosni=" + nr_rozglosni +
-                ", nr_studia=" + nr_studia +
-                ", nr_firmy=" + nr_firmy +
-                '}';
     }
 
 }

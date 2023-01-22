@@ -7,13 +7,6 @@ public class Studia {
     private String powierzchnia;
     private int nr_rozglosni;
 
-    public Studia() {
-        this.nr_studia = nr_studia;
-        this.nazwa = nazwa;
-        this.powierzchnia = powierzchnia;
-        this.nr_rozglosni = nr_rozglosni;
-    }
-
     public int getNr_studia() {
         return nr_studia;
     }
@@ -37,16 +30,6 @@ public class Studia {
     }
     public void setNr_rozglosni(int nr_rozglosni) {
         this.nr_rozglosni = nr_rozglosni;
-    }
-
-    @Override
-    public String toString() {
-        return "Studia{" +
-                "nr_studia=" + nr_studia +
-                ", nazwa='" + nazwa + '\'' +
-                ", powierzchnia='" + powierzchnia + '\'' +
-                ", nr_rozglosni=" + nr_rozglosni +
-                '}';
     }
 
 }

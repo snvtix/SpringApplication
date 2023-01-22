@@ -9,15 +9,6 @@ public class Klienci {
     private String email;
     private int nr_rozglosni;
 
-    public Klienci() {
-        this.nr_klienta = nr_klienta;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.nr_telefonu = nr_telefonu;
-        this.email = email;
-        this.nr_rozglosni = nr_rozglosni;
-    }
-
     public int getNr_klienta() {
         return nr_klienta;
     }
@@ -53,18 +44,6 @@ public class Klienci {
     }
     public void setNr_rozglosni(int nr_rozglosni) {
         this.nr_rozglosni = nr_rozglosni;
-    }
-
-    @Override
-    public String toString() {
-        return "Klienci{" +
-                "nr_klienta=" + nr_klienta +
-                ", imie='" + imie + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", nr_telefonu='" + nr_telefonu + '\'' +
-                ", email='" + email + '\'' +
-                ", nr_rozglosni=" + nr_rozglosni +
-                '}';
     }
 
 }
