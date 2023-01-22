@@ -8,7 +8,7 @@ public class Oferty {
     private String opis;
     private int nr_klienta;
 
-    public Oferty() {
+    public Oferty(int nr_oferty, String nazwa_produktu, float oferowana_cena, String opis, int nr_klienta) {
         this.nr_oferty = nr_oferty;
         this.nazwa_produktu = nazwa_produktu;
         this.oferowana_cena = oferowana_cena;
