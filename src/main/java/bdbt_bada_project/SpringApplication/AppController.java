@@ -23,6 +23,7 @@ public class AppController implements WebMvcConfigurer {
     private WynagrodzeniaDAO daoW;
     private StudiaDAO daoSt;
     private SprzetyDAO daoS;
+    private FirmyDAO daoF;
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
@@ -30,6 +31,18 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
+        registry.addViewController("/pracownik_zarzad").setViewName("admin/pracownik_zarzad");
+        registry.addViewController("/edit_pracownicy").setViewName("admin/edit_pracownicy");
+        registry.addViewController("/wynagrodzenia_zarzad").setViewName("admin/wynagrodzenia_zarzad");
+        registry.addViewController("/studia_zarzad").setViewName("admin/studia_zarzad");
+        registry.addViewController("/new_studia").setViewName("admin/new_studia");
+        registry.addViewController("/edit_studia").setViewName("admin/edit_studia");
+        registry.addViewController("/sprzety_zarzad").setViewName("admin/sprzety_zarzad");
+        registry.addViewController("/new_sprzety").setViewName("admin/new_sprzety");
+        registry.addViewController("/edit_sprzety").setViewName("admin/edit_sprzety");
+        registry.addViewController("/firmy_zarzad").setViewName("admin/firmy_zarzad");
+        registry.addViewController("/new_firmy").setViewName("admin/new_firmy");
+        registry.addViewController("/edit_firmy").setViewName("admin/edit_firmy");
         registry.addViewController("/main_user").setViewName("user/main_user");
         registry.addViewController("/klienci_zarzad").setViewName("user/klienci_zarzad");
         registry.addViewController("/edit_klienci").setViewName("user/edit_klienci");
@@ -70,10 +83,6 @@ public class AppController implements WebMvcConfigurer {
 
     //user---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //klienci
-    @RequestMapping(value={"/klienci_zarzad"})
-    public String showKlienci(Model model) {
-        return "user/klienci_zarzad";
-    }
     @RequestMapping("user/klienci_zarzad")
     public String klienciView(Model model){
         List<Klienci> listKlienci = daoK.list();
@@ -96,10 +105,6 @@ public class AppController implements WebMvcConfigurer {
     }
 
     //oferty
-    @RequestMapping(value={"/oferty_zarzad"})
-    public String showOferty(Model model) {
-        return "user/oferty_zarzad";
-    }
     @RequestMapping("user/oferty_zarzad")
     public String ofertyView(Model model){
         List<Oferty> listOferty = daoO.list();
@@ -190,7 +195,7 @@ public class AppController implements WebMvcConfigurer {
     public String sprzetyView(Model model){
         List<Sprzety> listSprzety = daoS.list();
         model.addAttribute("listSprzety", listSprzety);
-        return "admin/sprzety-zarzad";
+        return "admin/sprzety_zarzad";
     }
     @RequestMapping("/new_sprzety")
     public String showNewFormSprzety(Model model) {
@@ -217,13 +222,52 @@ public class AppController implements WebMvcConfigurer {
 
         return "redirect:/sprzety_zarzad";
     }
-
     @RequestMapping("/delete/{nr_sprzetu}")
     public String deleteSprzety(@PathVariable(name = "nr_sprzetu") int nr_sprzetu){
         daoS.delete(nr_sprzetu);
 
         return "redirect:/sprzety_zarzad";
     }
+
+    //firmy
+    @RequestMapping("/firmy_zarzad")
+    public String firmyView(Model model){
+        List<Firmy> listFirmy = daoF.list();
+        model.addAttribute("listFirmy", listFirmy);
+        return "admin/firmy_zarzad";
+    }
+    @RequestMapping("/new_firmy")
+    public String showNewFormFirmy(Model model) {
+        Firmy firmy = new Firmy();
+        model.addAttribute("firmy", firmy);
+        return "admin/new_firmy";
+    }
+    @RequestMapping(value="/saveFirmy", method=RequestMethod.POST)
+    public String saveFirmy(@ModelAttribute("firmy") Firmy firmy){
+        daoF.save(firmy);
+        return "redirect:/firmy_zarzad";
+    }
+    @RequestMapping("/edit_firmy/{nr_firmy}")
+    public ModelAndView showEditFormFirmy(@PathVariable(name = "nr_firmy") int nr_firmy){
+        ModelAndView mav = new ModelAndView("admin/edit_firmy");
+        Firmy firmy = daoF.get(nr_firmy);
+        mav.addObject("firmy", firmy);
+
+        return mav;
+    }
+    @RequestMapping(value="/updateFirmy", method=RequestMethod.POST)
+    public String updateFirmy(@ModelAttribute("firmy") Firmy firmy){
+        daoF.update(firmy);
+
+        return "redirect:/firmy_zarzad";
+    }
+    @RequestMapping("/delete/{nr_firmy}")
+    public String deleteFirmy(@PathVariable(name = "nr_firmy") int nr_firmy){
+        daoF.delete(nr_firmy);
+
+        return "redirect:/firmy_zarzad";
+    }
+
 
 }
 

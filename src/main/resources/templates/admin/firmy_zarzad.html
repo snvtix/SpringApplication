@@ -1,10 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Zarządzanie firmami</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+    <style>
+            .navbar{
+                background-color: #692137;
+            }
+            .navbar-brand{
+                font-size: 25px;
+            }
+            .nav-item{
+                font-size: 20px;
+            }
+            body{
+                background-color: white;
+            }
+            .nav-link{
+                color:aliceblue;
+            }
+            label{
+                font-size: 40px;
+                color: steelblue;
+            }
+            #remoteUser{
+                color: lightskyblue;
+                text-transform: capitalize;
+            }
+            #text{
+                font-size: 30px;
+                color: steelblue;
+            }
+            .btn{
+                 font-size: 20px;
+                 background-color: steelblue;
+                 color: white;
+            }
+            table{
+                background-color: aliceblue;
+                color: steelblue;
+                border-color: steelblue;
+            }
+    </style>
 </head>
+
 <body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Rozgłośnia muzyczna</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Main
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text">Zostałeś zalogowany jako <b
+                            style="text-transform: capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div align="center" style="padding-top: 100px; padding-bottom: 50px">
+    <h1 style="color: steelblue">Firmy</h1>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+        <tr>
+            <th>Numer firmy</th>
+            <th>Nazwa</th>
+            <th>Email</th>
+            <th>Numer telefonu</th>
+            <th>Numer konta</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="firmy : ${listFirmy}">
+            <td th:text="${firmy.nr_firmy}">nr_firmy</td>
+            <td th:text="${firmy.nazwa}">nazwa</td>
+            <td th:text="${firmy.email}">email</td>
+            <td th:text="${firmy.nr_telefonu}">nr_telefonu</td>
+            <td th:text="${firmy.nr_konta}">nr_konta</td>
+            <td>
+                <a th:href="@{'/edit_firmy/' + ${firmy.nr_firmy}}">Edytuj</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${nr_firmy}}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+    <a  th:href="@{/new_firmy}">
+        <button class="btn btn-outline-">Dodaj firmę</button>
+    </a>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

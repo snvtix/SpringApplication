@@ -23,7 +23,7 @@ public class Studia {
         return powierzchnia;
     }
     public void setPowierzchnia(String powierzchnia) {
-        powierzchnia = powierzchnia;
+        this.powierzchnia = powierzchnia;
     }
     public int getNr_rozglosni() {
         return nr_rozglosni;
