@@ -18,7 +18,7 @@ public class WynagrodzeniaDAO {
     }
 
     public List<Wynagrodzenia> list(){
-        String sql = "SELECT * FROM wynagrodzenia WHERE nr_pracownika = 1";
+        String sql = "SELECT * FROM WYNAGRODZENIA WHERE NR_PRACOWNIKA = 1";
 
         List<Wynagrodzenia> listWynagrodzenia = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Wynagrodzenia.class));
         return listWynagrodzenia;

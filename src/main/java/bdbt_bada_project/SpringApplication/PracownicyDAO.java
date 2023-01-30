@@ -21,7 +21,7 @@ public class PracownicyDAO {
     }
 
     public List<Pracownicy> list(){
-        String sql = "SELECT * FROM pracownicy WHERE nr_pracownika = 1";
+        String sql = "SELECT * FROM PRACOWNICY WHERE NR_PRACOWNIKA = 1";
 
         List<Pracownicy> listPracownicy = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pracownicy.class));
         return listPracownicy;
@@ -29,14 +29,14 @@ public class PracownicyDAO {
 
     public Pracownicy get(int nr_pracownika){
         Object[] args = {nr_pracownika};
-        String sql = "SELECT * FROM sprzety WHERE nr_sprzetu" + args[0];
+        String sql = "SELECT * FROM PRACOWNICY WHERE NR_PRACOWNIKA" + args[0];
         Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Pracownicy.class));
 
         return pracownicy;
     }
 
     public void update(Pracownicy pracownicy){
-        String sql = "UPDATE pracownicy SET .... WHERE nr_pracownika=:nr_pracownika";
+        String sql = "UPDATE PRACOWNICY SET .... WHERE NR_PRACOWNIKA=:NR_PRACOWNIKA";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

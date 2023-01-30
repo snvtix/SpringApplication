@@ -139,11 +139,11 @@ public class AppController implements WebMvcConfigurer {
 
     //amdin-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //pracownicy
-    @RequestMapping("/pracownicy_zarzad")
+    @RequestMapping("/prac_zarzad")
     public String pracownicyView(Model model){
         List<Pracownicy> listPracownicy = daoP.list();
         model.addAttribute("listPracownicy", listPracownicy);
-        return "admin/pracownicy_zarzad";
+        return "admin/prac_zarzad";
     }
     @RequestMapping("/edit_pracownicy/{nr_pracownika}")
     public ModelAndView showEditFormPracownicy(@PathVariable(name = "nr_pracownika") int nr_pracownika){
@@ -157,7 +157,7 @@ public class AppController implements WebMvcConfigurer {
     public String updatePracownicy(@ModelAttribute("pracownicy") Pracownicy pracownicy){
         daoP.update(pracownicy);
 
-        return "redirect:/pracownicy_zarzad";
+        return "redirect:/prac_zarzad";
     }
 
     //Wynagrodzenia

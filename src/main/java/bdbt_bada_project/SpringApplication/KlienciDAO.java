@@ -29,7 +29,7 @@ public class KlienciDAO {
 
     public void save(Klienci Klienci) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("KLIENCI").usingColumns();
+        insertActor.withTableName("KLIENCI").usingColumns("NR_KLIENTA", "IMIE", "NAZWISKO", "NR_TELEFONU", "EMAIL", "NR_ROZGLOSNI");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(Klienci);
         insertActor.execute(param);
@@ -37,14 +37,14 @@ public class KlienciDAO {
 
     public Klienci get(int nr_klienta){
         Object[] args = {nr_klienta};
-        String sql = "SELECT * FROM klienci WHERE nr_klienta" + args[0];
+        String sql = "SELECT * FROM KLIENCI WHERE NR_KLIENTA" + args[0];
         Klienci klienci = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Klienci.class));
 
         return klienci;
     }
 
     public void update(Klienci klienci){
-        String sql = "UPDATE klienci SET .... WHERE nr_klienta=:nr_klienta";
+        String sql = "UPDATE KLIENCI SET .... WHERE NR_KLIENTA=:NR_KLIENTA";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(klienci);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

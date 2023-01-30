@@ -27,7 +27,7 @@ public class OfertyDAO {
     }
     public void save(Oferty oferty) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("Oferty").usingColumns("NR_OFERTY", "NAZWA_PRODUKTU", "OFEROWANA_CENA", "OPIS", "NR_ROZGLOSNI");
+        insertActor.withTableName("OFERTY").usingColumns("NR_OFERTY", "NAZWA_PRODUKTU", "OFEROWANA_CENA", "OPIS", "NR_ROZGLOSNI");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(oferty);
         insertActor.execute(param);
@@ -35,14 +35,14 @@ public class OfertyDAO {
 
     public Oferty get(int nr_oferty){
         Object[] args = {nr_oferty};
-        String sql = "SELECT * FROM oferty WHERE nr_oferty" + args[0];
+        String sql = "SELECT * FROM OFERTY WHERE NR_OFERTY" + args[0];
         Oferty oferty = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Oferty.class));
 
         return oferty;
     }
 
     public void update(Oferty oferty){
-        String sql = "UPDATE oferty SET .... WHERE nr_oferty=:nr_oferty";
+        String sql = "UPDATE OFERTY SET .... WHERE NR_OFERTY=:NR_OFERTY";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(oferty);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

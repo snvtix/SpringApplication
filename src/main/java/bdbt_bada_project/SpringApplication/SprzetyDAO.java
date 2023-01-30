@@ -21,14 +21,14 @@ public class SprzetyDAO {
     }
 
     public List<Sprzety> list(){
-        String sql = "SELECT * FROM sprzety";
+        String sql = "SELECT * FROM SPRZETY";
 
         List<Sprzety> listSprzety = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Sprzety.class));
         return listSprzety;
     }
     public void save(Sprzety sprzety) {
         SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
-        insert.withTableName("Sprzety").usingColumns("nr_sprzetu", "nazwa", "model", "data_zakupu", "nr_rozglosni", "nr_studia", "nr_firmy");
+        insert.withTableName("SPRZETY").usingColumns("nr_sprzetu", "nazwa", "model", "data_zakupu", "nr_rozglosni", "nr_studia", "nr_firmy");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sprzety);
         insert.execute(param);
@@ -36,14 +36,14 @@ public class SprzetyDAO {
 
     public Sprzety get(int nr_sprzetu){
         Object[] args = {nr_sprzetu};
-        String sql = "SELECT * FROM sprzety WHERE nr_sprzetu" + args[0];
+        String sql = "SELECT * FROM SPRZETY WHERE NR_SPRZETU" + args[0];
         Sprzety sprzety = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Sprzety.class));
 
         return sprzety;
     }
 
     public void update(Sprzety sprzety){
-        String sql = "UPDATE oferty SET .... WHERE nr_oferty=:nr_oferty";
+        String sql = "UPDATE SPRZETY SET .... WHERE NR_SPRZETU=:NR_SPRZETU";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(sprzety);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 
@@ -51,7 +51,7 @@ public class SprzetyDAO {
     }
 
     public void delete(int nr_sprzetu){
-        String sql = "DELETE FROM sprzety WHERE nr_sprzetu = ?";
+        String sql = "DELETE FROM SPRZETY WHERE NR_SPRZETU = ?";
         jdbcTemplate.update(sql, nr_sprzetu);
     }
 

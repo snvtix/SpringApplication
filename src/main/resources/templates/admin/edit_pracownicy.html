@@ -70,24 +70,8 @@
     <div align="center">
 
         <h1 style="color: steelblue">Edytuj sprzęt</h1>
-        <form action="#" th:action="@{/updateSprzety}" th:object="${sprzety}" method="post">
+        <form action="#" th:action="@{/updatePracownicy}" th:object="${pracownicy}" method="post">
             <table border="1" cellpadding="10">
-                <tr>
-                    <td>Numer sprzętu</td>
-                    <td><input type="text" th:fields="{nr_sprzetu}"></td>
-                </tr>
-                <tr>
-                    <td>Nazwa</td>
-                    <td><input type="text" th:fields="{nazwa}"></td>
-                </tr>
-                <tr>
-                    <td>Model</td>
-                    <td><input type="text" th:fields="{model}"></td>
-                </tr>
-                <tr>
-                    <td>Data zakupu</td>
-                    <td><input type="text" th:fields="{data_zakupu}"></td>
-                </tr>
                 <tr>
                     <td colspane="2"><buttom type="submit">Zapisz</buttom></td>
                 </tr>
